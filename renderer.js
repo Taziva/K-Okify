@@ -15,33 +15,41 @@ cleanButton.onclick = () => {
 let lyricsContainer = document.querySelector("#lyrics");
 let detailsContainer = document.querySelector("#details");
 let artworkContainer = document.querySelector("#artwork");
+let statusContainer = document.querySelector("#status");
 
 const updateButtonText = clean => {
   clean
-    ? (cleanButton.textContent = "Clean")
-    : (cleanButton.textContent = "Explicit");
+    ?
+    (cleanButton.textContent = "Clean") :
+    (cleanButton.textContent = "Explicit");
 };
 
 let server = new zerorpc.Server({
-  health: function(reply) {
-    console.log("Connected");
+  health: function (reply) {
     reply(null, "Success");
+    statusContainer.textContent = "Connected"
   },
-  updateStatus: function(status, reply) {
+  updateStatus: function (status, reply) {
     reply(null, "Success");
-    console.log(status.message);
+    statusContainer.textContent = status.message
+
   },
-  error: function(error, reply) {
+  error: function (error, reply) {
+    reply(null, "Success");
     console.error(error);
-    reply(null, "Success");
+    statusContainer.textContent = error
   },
-  updateLyrics: function(content, reply) {
+  updateLyrics: function (content, reply) {
     reply(null, "Success");
     artwork.setAttribute("src", content.artwork);
     artwork.setAttribute("width", "300px");
     lyrics = content.lyrics;
     details = content.details;
+    statusContainer.textContent = "Formatting Lyrics"
+
     updateText(content);
+
+    statusContainer.textContent = "Done"
   }
 });
 
@@ -53,6 +61,6 @@ const updateText = content => {
 
 server.bind("tcp://0.0.0.0:4242");
 
-server.on("error", function(error) {
+server.on("error", function (error) {
   console.error("RPC server error:", error);
 });
