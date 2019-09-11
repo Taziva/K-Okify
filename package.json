@@ -1,18 +1,17 @@
 {
-  "name": "k-okify",
+  "name": "kr-okify",
   "version": "1.0.1",
   "description": "A minimal Electron and Python based lyrics display ",
   "main": "main.js",
   "build": {
-    "productName": "K-Okify",
-    "icon": "build/Icon.icns",
+    "productName": "Kr-Okify",
     "extraResources": [
-      "lyrics_scraper"
+      "lyrics_scraper_dist"
     ]
   },
   "scripts": {
-    "start": "electron .",
-    "dev": "nodemon --watch * --exec 'electron .'",
+    "start": "electron . > /tmp/electron-app.log",
+    "dev": "NODE_ENV=development  nodemon --watch * --exec 'electron .'",
     "pack": "electron-builder --dir",
     "dist": "make package-python && electron-builder",
     "postinstall": "electron-builder install-app-deps"
@@ -26,13 +25,14 @@
   "license": "MIT",
   "dependencies": {
     "bad-words-relaxed": "^1.6.5",
+    "electron-log": "^3.0.7",
     "global": "^4.4.0",
     "nodemon": "^1.19.2",
     "zerorpc": "^0.9.8"
   },
   "devDependencies": {
-    "electron": "^6.0.7",
-    "electron-builder": "^20.39.0",
-    "electron-packager": "^9.0.1"
+    "electron": "^6.0.8",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.0.6"
   }
 }

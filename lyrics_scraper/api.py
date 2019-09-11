@@ -1,6 +1,8 @@
-from models.lyrics import Lyrics
 import sys
 import zerorpc
+import requests
+
+from models.lyrics import Lyrics
 
 def main():
     client = zerorpc.Client()
