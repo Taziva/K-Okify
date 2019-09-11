@@ -119,5 +119,5 @@ pyzmq==18.0.1
 requests==2.21.0
 soupsieve==1.9            # via beautifulsoup4
 testfixtures==6.6.2
-urllib3==1.24.1
+urllib3==1.24.2
 zerorpc==0.6.1
