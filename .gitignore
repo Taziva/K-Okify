@@ -1,0 +1,5 @@
+node_modules
+lyrics_scraper_dist
+env
+dist
+.DS_Store

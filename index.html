@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>K-Okify</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMontserrat:700,400"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <style>
+    body {
+      text-align: center;
+      padding: 2rem 5rem;
+
+    }
+    .container {
+      width: 100%;
+    }
+    .song-details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lyrics-container {
+    }
+    #lyrics {
+      white-space: pre-wrap;
+    }
+    pre {
+      margin-top: 0px;
+      padding: 2rem;
+      width: 80%;
+    }
+    h3 {
+      margin-bottom: 0px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <button id="clean" type="button" name="button">Explicit</button>
+      <div class="song-details">
+        <h1 style="font-family:Montserrat;">K-Okify</h1>
+
+        <img id="artwork" />
+        <h3 style="font-family:Lato;font-size:16px" id="details"></h3>
+        <div class="lyrics-container">
+          <div style="font-family:Lato;font-size:16px" id="lyrics"></siv>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script defer src="./renderer.js">
+  </script>
+</html>
